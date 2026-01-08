@@ -1,0 +1,358 @@
+/* ---------- GLOBAL RESET & VARIABLES ---------- */
+:root {
+    --primary-blue: #005b9f;
+    /* Matches 'Book Appointment' and Search bar */
+    --hover-blue: #00447a;
+    /* Darker shade for hovers */
+    --accent-red: #e31e24;
+    /* Matches 'Narayana Health' logo red */
+    --text-dark: #212121;
+    /* Standard dark grey */
+    --text-light: #666666;
+    /* Secondary text */
+    --bg-light: #f8f9fa;
+    /* Very light grey background */
+    --white: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --radius: 6px;
+    /* Moderately rounded corners like screenshot */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    /* Clean, humanizing font */
+}
+
+body,
+html {
+    height: 100%;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+/* ---------- TOP BRAND BAR ---------- */
+.brand-bar {
+    padding: 15px 40px;
+    background: var(--white);
+    border-bottom: 2px solid var(--primary-blue);
+    /* Subtle brand color accent */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.brand-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    /* Ensure it takes full width for flex spacing */
+}
+
+/* Fix for Student Dashboard: Name inside brand-name */
+.brand-name>span {
+    margin-left: auto !important;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 15px !important;
+}
+
+/* Simulate the Logo visually with text colors if possible, or just keep it clean */
+.brand-name::before {
+    content: "";
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+    background-image: url('SKG.png');
+    /* User provided image */
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    /* Cut in a circle manner as requested */
+    border: 2px solid #e0e0e0;
+    /* Subtle border for clean definition */
+}
+
+/* Fix for legacy inline styles in JSP headers (Welcome message) */
+/* Targeted by structure since we cannot edit JSP classes */
+.brand-bar>div:not(.brand-name) {
+    margin: 0 !important;
+    float: none !important;
+    color: var(--text-dark) !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+}
+
+
+/* ---------- AUTH WRAPPER ---------- */
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 70px);
+    background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
+    padding: 20px;
+}
+
+/* ---------- LOGIN CARD ---------- */
+.auth-card {
+    width: 400px;
+    background: var(--white);
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    border-top: 4px solid var(--primary-blue);
+    /* Professional accent */
+}
+
+.auth-title {
+    font-size: 24px;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+.auth-subtitle {
+    font-size: 14px;
+    margin-bottom: 25px;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+/* ---------- ROLE BUTTONS ---------- */
+.role-switch {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.role-btn {
+    flex: 1;
+    padding: 10px 0;
+    border-radius: 4px;
+    /* Sqaure-ish rounded like screenshot buttons */
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-light);
+    transition: all 0.2s ease;
+}
+
+.role-btn:hover {
+    background: #e6e6e6;
+    color: var(--primary-blue);
+}
+
+.role-btn.active {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+    color: var(--white);
+}
+
+/* ---------- FORM FIELDS ---------- */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.form-group input {
+    padding: 12px 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: var(--white);
+    transition: 0.2s ease;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 2px rgba(0, 91, 159, 0.1);
+    outline: none;
+}
+
+/* ---------- MAIN LOGIN BUTTON ---------- */
+.primary-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 4px;
+    border: none;
+    background: var(--primary-blue);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.primary-btn:hover {
+    background: var(--hover-blue);
+    box-shadow: 0 4px 12px rgba(0, 91, 159, 0.2);
+}
+
+/* ---------- FOOTER TEXT ---------- */
+.footer-note {
+    margin-top: 25px;
+    font-size: 12px;
+    text-align: center;
+    color: #999;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+/* ---------- DASHBOARD STYLES ---------- */
+.dashboard-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px;
+    min-height: calc(100vh - 60px);
+}
+
+.dashboard-card {
+    width: 100%;
+    max-width: 900px;
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid #eee;
+}
+
+.dashboard-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--primary-blue);
+}
+
+.dashboard-subtitle {
+    margin-bottom: 30px;
+    font-size: 15px;
+    color: var(--text-light);
+}
+
+/* Options Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.dashboard-option {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: var(--white);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid var(--border-color);
+    border-left: 4px solid transparent;
+}
+
+.dashboard-option:hover {
+    border-color: var(--primary-blue);
+    border-left-color: var(--primary-blue);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    background: #fcfcfc;
+    transform: translateY(-2px);
+}
+
+.dashboard-option h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    color: var(--primary-blue);
+    font-weight: 700;
+}
+
+.dashboard-option p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.4;
+}
+
+/* ---------- TABLES ---------- */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid #eee;
+    border-radius: 4px;
+    /* Note: border-radius on tables requires overflow:hidden on container usually */
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.data-table th {
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.data-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+    color: var(--text-dark);
+    font-size: 14px;
+}
+
+.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+.data-table tr:hover {
+    background-color: #f5f9fc;
+}
+
+/* Utility for simple lists */
+.menu-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu-item {
+    display: block;
+    background: var(--white);
+    padding: 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+    transition: 0.2s ease;
+}
+
+.menu-item:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+    border-color: var(--primary-blue);
+}
